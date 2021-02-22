@@ -99,11 +99,7 @@ def body_builder(index)
 	end
 	unless body["aroundPlanet"].nil?
 		nearest_planet_french = body["aroundPlanet"]["planet"].downcase
-		if !($translations.has_key?(nearest_planet_french))
-			binding.pry
-		else
-			nearest_planet = $translations[nearest_planet_french]
-		end
+		nearest_planet = $translations[nearest_planet_french]
 	else
 		nearest_planet = name
 	end
