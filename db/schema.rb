@@ -10,9 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_02_22_160202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bodies", force: :cascade do |t|
+    t.string "name"
+    t.string "nearest_planet"
+    t.integer "distance"
+    t.integer "capacity"
+    t.string "climate"
+    t.date "discovery_date"
+    t.string "discovered_by"
+    t.boolean "is_planet"
+    t.integer "gravity"
+    t.integer "cost_per_day"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end
