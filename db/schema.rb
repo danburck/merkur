@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2021_02_23_104044) do
 
   # These are extensions that must be enabled in order to support this database
@@ -26,6 +27,23 @@ ActiveRecord::Schema.define(version: 2021_02_23_104044) do
     t.boolean "is_planet"
     t.integer "gravity"
     t.integer "cost_per_day"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "travellers", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "origin_planet"
+    t.index ["email"], name: "index_travellers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_travellers_on_reset_password_token", unique: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
