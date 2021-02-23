@@ -1,23 +1,21 @@
-<h1><%= @body.name %></h1>
+<div class="container">
+  <h1><%= @body.name.capitalize %></h1>
+  <%= image_tag "mars.jpg", {alt: "mars", class: 'image-planet'} %>
 
-<p><%= "#{@body.name} was discovered by #{@body.discovered_by} on #{discovery_date}." %></p>
+  <div class="content d-flex justify-content-between mt-4">
+    <div class="content-details ">
+      <h4>Details</h3>
+      <p><%= "discovered_by: #{@body.discovered_by}" %></p>
+      <p><%= "discovery_date: #{@body.discovery_date}" %></p>
+      <p><%= "cost_per_day: #{@body.cost_per_day}" %></p>
+      <p><%= "distance: #{@body.distance} km" %></p>
+      <p><%= "capacity: #{@body.capacity} people" %></p>
+      <p><%= "climate: #{@body.climate}" %></p>
+      <p><%= "gravity: #{@body.gravity}" %></p>
+    </div>
+    <div class="content-reservation">
+      <p>Reservation form</p>
+    </div>
+  </div>
+</div>
 
-
-<h3>Details</h3>
-<p><%= "cost_per_day: #{@body.cost_per_day}" %></p>
-<p><%= "distance: #{@body.distance}" %></p>
-<p><%= "capacity: #{@body.capacity}" %></p>
-<p><%= "climate: #{@body.climate}" %></p>
-<p><%= "gravity: #{@body.gravity}" %></p>
-
-
-    t.string "name"
-    t.string "nearest_planet"
-    t.float "distance"
-    t.integer "capacity"
-    t.string "climate"
-    t.date "discovery_date"
-    t.string "discovered_by"
-    t.boolean "is_planet"
-    t.integer "gravity"
-    t.integer "cost_per_day"
