@@ -6,7 +6,7 @@ class CreateTrips < ActiveRecord::Migration[6.0]
       t.date :arrival_date
       t.date :departure_date
       t.string :starship
-      t.float :travel_cost
+      t.integer :travel_cost
 
       t.timestamps
     end
