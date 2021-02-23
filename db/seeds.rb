@@ -7,7 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # distance of each planet in our solar system from Earth in Astronomical units"
-$distances = { 
+
+DISTANCES = { 
 	"mercury" => 0.39,
 	"venus" => 0.72,
 	"earth" => 1.00,
@@ -28,7 +29,7 @@ $distances = {
 	"136199 eris" => 96.56,
 }
 
-$translations = {
+TRANSLATIONS = {
 	"mercure" => "mercury",
 	"vénus" => "venus",
 	"terre" => "earth",
@@ -50,7 +51,7 @@ $translations = {
 }
 
 # To interpolate into such a string: "The atmospheric conditions on #{planet.name} are #{} "
-$weather = [
+WEATHER = [
 	"extremely hot",
 	"below freezing",
 	"mild",
@@ -83,41 +84,18 @@ $weather = [
 	"foggy"
 ]
 
-planets_url = open("https://api.le-systeme-solaire.net/rest/bodies/").read
-$planets_json = JSON.parse(planets_url)
+bodies_url = open("https://api.le-systeme-solaire.net/rest/bodies/").read
+bodies_json = JSON.parse(bodies_url)
+BODY = bodies_json["bodies"]
 
 
-def body_builder(index)
-	body = $planets_json["bodies"][index]
-	unless body["englishName"].nil? || body["englishName"] == ""
-		name = body["englishName"].downcase
 
-	else
-		name = body["name"].downcase
-	end
-	unless body["aroundPlanet"].nil?
-		nearest_planet_french = body["aroundPlanet"]["planet"].downcase
-		nearest_planet = $translations[nearest_planet_french]
-	else
-		nearest_planet = name
-	end
-	
-	if $distances.has_key?(name)
-		distance = $distances[name]
-	elsif $distances.has_key?(nearest_planet)
-		plus_or_minus = rand(1..2)
-		case plus_or_minus
-		when 1
-			distance = $distances[nearest_planet] + rand(0.0..0.7)
-		when 2
-			distance = $distances[nearest_planet] - rand(0.0..0.7)
-		end
-	else
-		distance = rand(21.5..52.5)
-	end
-	distance = distance.round(2)
+def body_builder(body)
+	name = get_name(body)
+	nearest_planet = get_nearest_planet(body, name)
+	distance = get_distance(body, name, nearest_planet)
 	capacity = rand(50..100)
-	climate = $weather.sample
+	climate = WEATHER.sample
 	discovery_date = body["discoveryDate"]
 	body["discoveredBy"].empty? ? discovered_by = nil : discovered_by = body["discoveredBy"]
 	is_planet = body["isPlanet"]
@@ -139,10 +117,41 @@ def body_builder(index)
 	puts "#{emoji.sample}  Creating #{body.name.titleize}"
 end
 
-index = 0
 
-286.times do
-	body_builder(index)
-	index += 1
+def get_name(body)
+	unless body["englishName"].nil? || body["englishName"] == ""
+		body["englishName"].downcase
+	else
+		body["name"].downcase
+	end
 end
 
+def get_nearest_planet(body, name)
+	unless body["aroundPlanet"].nil?
+		nearest_planet_french = body["aroundPlanet"]["planet"].downcase
+		nearest_planet = TRANSLATIONS[nearest_planet_french]
+	else
+		nearest_planet = name
+	end
+end
+
+def get_distance(body, name, nearest_planet)
+	if DISTANCES.has_key?(name)
+		distance = DISTANCES[name]
+	elsif DISTANCES.has_key?(nearest_planet)
+		plus_or_minus = rand(1..2)
+		case plus_or_minus
+		when 1
+			distance = DISTANCES[nearest_planet] + rand(0.0..0.7)
+		when 2
+			distance = DISTANCES[nearest_planet] - rand(0.0..0.7)
+		end
+	else
+		distance = rand(21.5..52.5)
+	end
+	distance = distance.round(2)
+end
+
+BODY.each do |body|
+	body_builder(body)
+end
