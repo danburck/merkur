@@ -8,14 +8,14 @@
 
 # distance of each planet in our solar system from Earth in Astronomical units"
 
-DISTANCES = { 
+DISTANCES = {
 	"mercury" => 0.39,
 	"venus" => 0.72,
 	"earth" => 1.00,
 	"mars" => 1.52,
 	"87 sylvia" => 2.87,
 	"243 ida" =>  3.25,
-	"216 kleopatra" => 3.56, 
+	"216 kleopatra" => 3.56,
 	"50000 quaoar" => 4.12,
 	"136472 makemake" => 4.12,
 	"45 eugenia" => 4.2,
@@ -155,3 +155,35 @@ end
 BODY.each do |body|
 	body_builder(body)
 end
+
+
+def create_users
+  puts 'Creating user'
+  user = User.create(
+    email: 'user@user.com',
+    password: '123456',
+    first_name: 'Alex',
+    last_name: 'Jones',
+    origin_planet: 'Earth'
+    )
+  puts "Finished! Created #{user.first_name}, email: #{user.email}, password: #{user.password}"
+end
+
+def create_trips
+  puts 'Creating trips.'
+  (1..10).to_a.each do |i|
+    trip = Trip.create(
+      body_id: Body.find(i),
+      user_id: User.first,
+      arrival_date: Date.today,
+      departure_date: Date.today + 4,
+      starship: 'Tesla SN8',
+      travel_cost: 400,
+    )
+    puts "Created Trip to #{trip.body}"
+  end
+  puts 'Finished!'
+end
+
+create_users
+create_trips
