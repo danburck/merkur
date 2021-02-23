@@ -9,9 +9,11 @@ class TripsController < ApplicationController
 
 
   def create
-    @trip = Trip.find(params[:id])
-    @user = User.new(user_params)
-    @user.trip = @user
+    @body = Body.find(params[:body_id])
+    @trip = Trip.new(trip_params)
+    @trip.user = current_user
+    @trip.travel_cost = @body.cost_per_day
+    @booking
      if @trip.save
       redirect_to home_path(@bodies)
     else
@@ -20,6 +22,7 @@ class TripsController < ApplicationController
   end
 
   def new
+    @body = Body.find(params[:body_id])
     @trip = Trip.new
   end
 
