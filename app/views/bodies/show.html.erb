@@ -1,0 +1,23 @@
+<h1><%= @body.name %></h1>
+
+<p><%= "#{@body.name} was discovered by #{@body.discovered_by} on #{discovery_date}." %></p>
+
+
+<h3>Details</h3>
+<p><%= "cost_per_day: #{@body.cost_per_day}" %></p>
+<p><%= "distance: #{@body.distance}" %></p>
+<p><%= "capacity: #{@body.capacity}" %></p>
+<p><%= "climate: #{@body.climate}" %></p>
+<p><%= "gravity: #{@body.gravity}" %></p>
+
+
+    t.string "name"
+    t.string "nearest_planet"
+    t.float "distance"
+    t.integer "capacity"
+    t.string "climate"
+    t.date "discovery_date"
+    t.string "discovered_by"
+    t.boolean "is_planet"
+    t.integer "gravity"
+    t.integer "cost_per_day"
