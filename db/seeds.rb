@@ -105,18 +105,19 @@ def body_builder(index)
 	end
 	
 	if $distances.has_key?(name)
-		distance = $distances[nearest_planet]
+		distance = $distances[name]
 	elsif $distances.has_key?(nearest_planet)
 		plus_or_minus = rand(1..2)
 		case plus_or_minus
 		when 1
-			distance = $distances[nearest_planet] + rand(2.3..6.6)
+			distance = $distances[nearest_planet] + rand(0.0..0.7)
 		when 2
-			distance = $distances[nearest_planet] - rand(3.7..6.4)
+			distance = $distances[nearest_planet] - rand(0.0..0.7)
 		end
 	else
-		distance = rand(21.05..52.05)
+		distance = rand(21.5..52.5)
 	end
+	distance = distance.round(2)
 	capacity = rand(50..100)
 	climate = $weather.sample
 	discovery_date = body["discoveryDate"]
@@ -136,7 +137,15 @@ def body_builder(index)
 		gravity: gravity,
 		cost_per_day: cost_per_day
 	})
-	puts "🪐 Creating #{body.name.titleize}"
+	emoji = rand(1..3)
+	case emoji
+	when 1
+		puts "🪐  Creating #{body.name.titleize}"
+	when 2
+		puts "☄️  Creating #{body.name.titleize}"
+	when 3
+		puts "🌌  Creating #{body.name.titleize}"
+	end
 end
 
 index = 0
