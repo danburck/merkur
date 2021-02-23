@@ -113,7 +113,7 @@ def body_builder(body)
 		gravity: gravity,
 		cost_per_day: cost_per_day
 	})
-	emoji = ["🪐", "☄️", "🌌"]
+	emoji = ["🪐", "☄️ ", "🌌"]
 	puts "#{emoji.sample}  Creating #{body.name.titleize}"
 end
 
