@@ -6,8 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-require 'json'
-
 # distance of each planet in our solar system from Earth in Astronomical units"
 $distances = { 
 	"mercury" => 0.39,
@@ -137,15 +135,8 @@ def body_builder(index)
 		gravity: gravity,
 		cost_per_day: cost_per_day
 	})
-	emoji = rand(1..3)
-	case emoji
-	when 1
-		puts "🪐  Creating #{body.name.titleize}"
-	when 2
-		puts "☄️  Creating #{body.name.titleize}"
-	when 3
-		puts "🌌  Creating #{body.name.titleize}"
-	end
+	emoji = ["🪐", "☄️", "🌌"]
+	puts "#{emoji.sample}  Creating #{body.name.titleize}"
 end
 
 index = 0
