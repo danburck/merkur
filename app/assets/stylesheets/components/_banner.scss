@@ -1,4 +1,3 @@
-
 .banner-home {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), asset-url('home-banner-min');
   background-size: cover;
@@ -17,7 +16,7 @@
   }
 
   p {
-     color: $white;
+    color: $white;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     font-family: $body-font;
   }
