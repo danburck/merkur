@@ -1,1 +1,26 @@
+<form action="/home">
+  <label for="fbody">body></label><br>
+  <input type="text" id="fname"  value="Planet"><br>
+  <label for="fdeparture">Departure</label><br>
+  <input type="text" id="fname"  value="date"><br>
+  <label for="farrival">Arrival:</label><br>
+  <input type="text" id="fname"  value="date"><br>
+  <label for="fname_first">Amount of guests</label><br>
+  <input type="text" id="fname"  value="Peter"><br>
+  <label for="fname_first">Amount of guests</label><br>
+  <input type="text" id="fname"  value="Peter"><br>
+  <label for="lname_last"></label><br>
+  <input type="text" id="lname" value="Wolf"><br><br>
+  <input type="submit" value="Submit">
+</form>
 
+<%= @user each do |trip| %>
+<ul>
+  <li><%= user.trip.arrival_date %></li>
+  <li><%= user.trip.departure_date %></li>
+  <li><%= user.trip.starship %></li>
+  <li><%= user.trip.travel_cost %></li>
+</ul>
+ <% end %>
+
+<%= link_to " 🛸 Go - look for your next travel! 🛸 ", root_path %>
