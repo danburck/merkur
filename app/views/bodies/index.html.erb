@@ -1,7 +1,16 @@
-<h1>Index</h1>
-<h2>First 10 Words</h2>
-<ul>
-	<% @bodies.first(10).each do |body| %>
-		<li><%= body.name %></li>
-	<% end %>
-</ul>
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+		<h1 class="mt-4 mb-4">Discover new worlds</h1>
+		</div>
+	</div>
+	<div class="row">
+		<% @bodies.each do |body| %>
+			<div class="col-lg-4 col-md-6 col-12 mb-3">
+				<div class="card-category">
+					<%= link_to body.name.titleize, body_path(body)%>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
