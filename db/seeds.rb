@@ -90,7 +90,12 @@ bodies_url = open("https://api.le-systeme-solaire.net/rest/bodies/").read
 bodies_json = JSON.parse(bodies_url)
 BODY = bodies_json["bodies"]
 
-def starship_builder
+def starship_builder(name)
+	cost = (rand(5..15) * (rand(1..2) * 5))
+	Starship.create!({
+		name: name,
+		cost: cost
+	})
 end
 
 def body_builder(body)
@@ -104,6 +109,7 @@ def body_builder(body)
 	is_planet = body["isPlanet"]
 	gravity = body["gravity"]
 	cost_per_day = rand(10..150)
+	starship = Starship.find_by(id: rand(1..30))
 	body = Body.create!({
 		name: name,
 		nearest_planet: nearest_planet,
@@ -114,7 +120,8 @@ def body_builder(body)
 		discovered_by: discovered_by,
 		is_planet: is_planet,
 		gravity: gravity,
-		cost_per_day: cost_per_day
+		cost_per_day: cost_per_day,
+		starship: starship
 	})
 	emoji = ["🪐", "☄️ ", "🌌"]
 	puts "#{emoji.sample}  Creating #{body.name.titleize}"
@@ -154,6 +161,10 @@ def get_distance(body, name, nearest_planet)
 	distance = distance.round(2)
 end
 
+15.times { starship_builder(Faker::Space.unique.constellation) }
+15.times { starship_builder(Faker::Space.unique.star) }
+
 BODY.each do |body|
 	body_builder(body)
 end
+
