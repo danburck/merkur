@@ -4,7 +4,7 @@
 
   <div class="content d-flex justify-content-between mt-4">
     <div class="content-details ">
-      <h4>Details</h3>
+      <h3>Details</h3>
       <p><%= "discovered_by: #{@body.discovered_by}" %></p>
       <p><%= "discovery_date: #{@body.discovery_date}" %></p>
       <p><%= "cost_per_day: #{@body.cost_per_day}" %></p>
@@ -15,12 +15,8 @@
     </div>
     <div class="content-reservation">
 
-
-   <%= simple_form_for [ @body, @trip ] do |f| %>
-          <%= f.input :arrival_date, placeholder: "01.01.2021" %>
-          <%= f.input :departure_date, placeholder: "30.06.2021" %>
-          <%= f.submit "Add", class: "btn btn-primary" %>
-    <% end %>
+     <h3>Your journey</h3>
+     <%= render 'trips/form', trip: @trip %>
 
     </div>
   </div>
