@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-    def index
+  def index
     @trips = Trip.where(user: current_user)
   end
 
@@ -16,17 +16,19 @@ class TripsController < ApplicationController
     @trip.body = @body
     @trip.user = @user
     if @trip.save
-      redirect_to root_path
+      redirect_to trip_path(@trip)
     else
       render :new
     end
   end
 
-  def show; end
+  def show
+    @trip = Trip.find(params[:id])
+  end
 
- private
+  private
 
   def trip_params
     params.require(:trip).permit(:arrival_date, :departure_date, :body_id, :user_id)
-end
+  end
 end

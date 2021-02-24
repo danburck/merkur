@@ -1,26 +1,24 @@
-
 <div class="banner-home">
   <h1>Merkur<i class="fas fa-rocket"></i></h1>
   <p>beyond infinity</p>
+  <%= link_to "Find other worlds", bodies_path, class: "btn-info" %>
 </div>
-
-
 <div class="container">
-
   <div class="row">
     <div class="col-12">
-      <h1 class="mt-4 mb-4">Discover the space</h1>
+      <h1 class="mt-4 mb-4 text-center">Discover the universe</h1>
     </div>
   </div>
   <div class="row">
-    <% @bodies.first(6).each do |body| %>
+    <% @bodies.first(3).each do |body| %>
     <div class="col-lg-4 col-md-6 col-12 mb-3">
-    <div class="card-category">
-   <%= link_to body.name, body_path(body)%>
-</div>
+      <div class="card-category">
+        <%= link_to body.name, body_path(body)%>
+      </div>
     </div>
     <% end %>
   </div>
+
    <div class="row">
  <% @bodies.first(3).each do |body| %>
  <div class="col-lg-4 col-md-6 col-12 mb-3">
@@ -62,3 +60,6 @@
 
 
 </div>
+
+</div>
+>>>>>>> da7fe945eacb67842b3b497245baa4090284801d
