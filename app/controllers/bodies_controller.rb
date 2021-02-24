@@ -1,5 +1,8 @@
 class BodiesController < ApplicationController
-  def show
-    @body = Body.find(params[:id])
-  end
+	def index
+		@body = Body.all
+	end
+  	def show
+    	@body = Body.find(params[:id])
+  	end
 end
