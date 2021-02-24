@@ -19,3 +19,18 @@
     text-decoration: none;
   }
 }
+
+.card-trip {
+  border-radius: 5px;
+
+  .card-img-top {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .card-date {
+    color: rgb(113, 113, 113);
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
