@@ -1,32 +1,21 @@
-<h1>My trips</h1>
-
-<div class="container">
-  <%= @trips.each do |trip| %>
-    <div class="card" style="width: 22rem;">
-      <%= image_tag "home-banner-min.jpg", alt: "alttext", class: "card-img-top"%>
-      <div class="card-body">
-        <h5 class="card-title"><%= "Trip to #{trip.body.name}" %></h5>
-        <p class="card-text"><%= "#{trip.departure_date} - #{trip.arrival_date}"%></p>
-        <a href="#" class="stretched-link"></a>
-      </div>
-    </div>
-  <% end %>
-</div>
-
-
-
-
-
-
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h1 class="mt-4 mb-4">Discover the space</h1>
+      <h1 class="mt-4 mb-4">My trips</h1>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-4 col-md-6 col-12 mb-3">
-
-    </div>
+    <%= @trips.each do |trip| %>
+      <div class="col-lg-4 col-md-6 col-12 mb-3">
+        <div class="card card-trip">
+          <%= image_tag "home-banner-min.jpg", alt: "alttext", class: "card-img-top"%>
+          <div class="card-body">
+          <p class=" card-date mb-1"><%= "#{trip.departure_date} - #{trip.arrival_date}"%></p>
+            <h5 class="card-title"><%= trip.body.name.capitalize %></h5>
+            <a href="#" class="stretched-link"></a>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
