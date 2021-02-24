@@ -6,5 +6,4 @@ resources :trips, only: :index
   resources :bodies, only: [ :index, :show, :new, :create ] do
     resources :trips, only: [ :index,:new, :create ]
   end
-
 end
