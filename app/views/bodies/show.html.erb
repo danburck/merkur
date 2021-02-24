@@ -14,8 +14,16 @@
       <p><%= "gravity: #{@body.gravity}" %></p>
     </div>
     <div class="content-reservation">
-      <p>Reservation form</p>
+
+
+   <%= simple_form_for [ @body, @trip ] do |f| %>
+          <%= f.input :arrival_date, placeholder: "01.01.2021" %>
+          <%= f.input :departure_date, placeholder: "30.06.2021" %>
+          <%= f.submit "Add", class: "btn btn-primary" %>
+    <% end %>
+
     </div>
   </div>
+</div>
 </div>
 
