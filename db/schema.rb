@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_24_102855) do
+ActiveRecord::Schema.define(version: 2021_02_24_112216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2021_02_24_102855) do
     t.bigint "user_id", null: false
     t.date "arrival_date"
     t.date "departure_date"
-    t.string "starship"
     t.integer "travel_cost"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
