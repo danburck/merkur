@@ -1,0 +1,20 @@
+<h1>Your trip to
+  <%= @trip.body.name %>
+</h1>
+<ul>
+  <li>Arrival date:
+    <%= @trip.arrival_date %>
+  </li>
+  <li>Departure date:
+    <%= @trip.departure_date %>
+  </li>
+  <li>Cost:
+    <%= @trip.travel_cost %>
+  </li>
+  <li>Starship:
+    <%= @trip.starship %>
+  </li>
+  <li>
+    <%= @trip.user.email %>
+  </li>
+</ul>

@@ -1,4 +1,8 @@
 class TripsController < ApplicationController
+
+  def show
+    @trip = Trip.find(params[:id])
+  end
   def create
     @trip = Trip.new(trip_params)
     @trip.body_id = params[:body_id]
