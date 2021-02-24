@@ -194,8 +194,22 @@ def create_trips
       starship: 'Tesla SN8',
       travel_cost: 400,
     )
-    puts "Created Trip to #{trip.body.name}"
+    puts "Created Trip to #{trip.body.name} for user_1"
   end
+
+  puts 'Creating trips.'
+  (1..4).to_a.each do |i|
+    trip = Trip.create(
+      body: Body.find(i),
+      user: User.second,
+      arrival_date: Date.today,
+      departure_date: Date.today + 4,
+      starship: 'Tesla SN8',
+      travel_cost: 400,
+    )
+    puts "Created Trip to #{trip.body.name} for user_1"
+  end
+
   puts 'Finished!'
 end
 

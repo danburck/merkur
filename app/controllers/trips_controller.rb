@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
   def index
-    @trips = Trip.all
+    @trips = Trip.where(user: current_user)
   end
 end
