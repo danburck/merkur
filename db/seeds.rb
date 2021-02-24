@@ -173,14 +173,14 @@ def create_trips
   puts 'Creating trips.'
   (1..10).to_a.each do |i|
     trip = Trip.create(
-      body_id: Body.find(i),
-      user_id: User.first,
+      body: Body.find(i),
+      user: User.first,
       arrival_date: Date.today,
       departure_date: Date.today + 4,
       starship: 'Tesla SN8',
       travel_cost: 400,
     )
-    puts "Created Trip to #{trip.body}"
+    puts "Created Trip to #{trip.body.name}"
   end
   puts 'Finished!'
 end
