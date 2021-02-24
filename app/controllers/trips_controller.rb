@@ -13,11 +13,11 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.body = @body
     @trip.user = @user
-    if @body.save
+    if @trip.save
       redirect_to root_path
     else
       render :new
-   end
+    end
   end
 
   def index
@@ -29,6 +29,6 @@ class TripsController < ApplicationController
  private
 
   def trip_params
-    params.require(:trip).permit(:arrival_date, :departure_date, :starship, :travel_cost, :)
+    params.require(:trip).permit(:arrival_date, :departure_date, :body_id, :user_id)
   end
 end

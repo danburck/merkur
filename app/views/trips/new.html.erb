@@ -1,9 +1,7 @@
 <h1>Trip</h1>
 
  <%= simple_form_for [ @body, @trip ] do |f| %>
-
         <%= f.input :arrival_date, placeholder: "01.01.2021" %>
         <%= f.input :departure_date, placeholder: "30.06.2021" %>
-        <%= f.input :starship, placeholder: "spacestar" %>
         <%= f.submit "Add", class: "btn btn-primary" %>
   <% end %>
