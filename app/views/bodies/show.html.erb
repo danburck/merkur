@@ -5,15 +5,51 @@
   <div class="content d-flex justify-content-between mt-4">
     <div class="content-details ">
       <h4>Details</h3>
-      <p>The </p>
-      <p>*******</p>
-      <p><%= "discovered_by: #{@body.discovered_by}" %></p>
-      <p><%= "discovery_date: #{@body.discovery_date}" %></p>
-      <p><%= "cost_per_day: #{@body.cost_per_day}" %></p>
-      <p><%= "distance: #{@body.distance} km" %></p>
-      <p><%= "capacity: #{@body.capacity} people" %></p>
-      <p><%= "climate: #{@body.climate}" %></p>
-      <p><%= "gravity: #{@body.gravity}" %></p>
+      <p>
+        The
+        <% if @body.is_planet %>
+          <%= "planet " %>
+        <% else %>
+          <%= "world " %>
+        <% end %>
+        <%= "'#{@body.name.capitalize}' "%>
+        is
+        <%= "#{@body.distance} astronomical units "%>
+        away from Earth. It takes light
+        <% light = (@body.distance / 0.7214359695194).round(2).to_s.split(".") %>
+        <%="#{light[0]} hours and #{light[1]} minutes " %>
+        to travel this far. You will be travelling onboard the 
+        <%= @body.starship.name %>
+         at close to the speed of light.
+        <%= @body.name.titleize %>
+         has a gravity of
+        <%= "#{@body.gravity} " %>
+        in relation to Earth.
+      </p>
+      <p>
+        The atmospheric conditions of 
+        <%= "#{@body.name.titleize} are #{@body.climate}."%>
+        No matter the weather, you will be enjoying your stay in optimal conditions at one of Merkur's premium climate controlled estates.
+      </p>
+      <p>
+        <% if @body.discovered_by %>
+          <%= "#{@body.name.titleize} was discovered by #{@body.discovered_by}" %>
+        <% end %>
+        <% if @body.discovery_date %>
+          <%= "#{@body.discovery_date.strftime("in %Y on the %d.%m")}" %>
+        <% end %>
+        . 
+      </p>
+      <p>
+        <%= "It costs #{@body.cost_per_day} space dollars per day to stay on #{@body.name.titleize}." %>
+        This 
+        <% if @body.is_planet %>
+          <%= "planet " %>
+        <% else %>
+          <%= "world " %>
+        <% end %>
+        <%= "can only hold #{@body.capacity} people, so book now!" %>
+      </p>
     </div>
     <div class="content-reservation">
 
