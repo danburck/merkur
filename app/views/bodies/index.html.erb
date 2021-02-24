@@ -1,0 +1,7 @@
+<h1>Index</h1>
+<h2>First 10 Words</h2>
+<ul>
+	<% @bodies.first(10).each do |body| %>
+		<li><%= body.name %></li>
+	<% end %>
+</ul>
