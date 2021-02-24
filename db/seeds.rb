@@ -8,6 +8,8 @@
 
 # distance of each planet in our solar system from Earth in Astronomical units"
 
+Faker::UniqueGenerator.clear
+
 DISTANCES = { 
 	"mercury" => 0.39,
 	"venus" => 0.72,
@@ -88,7 +90,8 @@ bodies_url = open("https://api.le-systeme-solaire.net/rest/bodies/").read
 bodies_json = JSON.parse(bodies_url)
 BODY = bodies_json["bodies"]
 
-
+def starship_builder
+end
 
 def body_builder(body)
 	name = get_name(body)
@@ -116,7 +119,6 @@ def body_builder(body)
 	emoji = ["🪐", "☄️ ", "🌌"]
 	puts "#{emoji.sample}  Creating #{body.name.titleize}"
 end
-
 
 def get_name(body)
 	unless body["englishName"].nil? || body["englishName"] == ""

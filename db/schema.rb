@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_141745) do
+ActiveRecord::Schema.define(version: 2021_02_24_102855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 2021_02_23_141745) do
     t.boolean "is_planet"
     t.integer "gravity"
     t.integer "cost_per_day"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "starship_id"
+    t.index ["starship_id"], name: "index_bodies_on_starship_id"
+  end
+
+  create_table "starships", force: :cascade do |t|
+    t.string "name"
+    t.integer "cost"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -58,6 +67,7 @@ ActiveRecord::Schema.define(version: 2021_02_23_141745) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bodies", "starships"
   add_foreign_key "trips", "bodies"
   add_foreign_key "trips", "users"
 end
