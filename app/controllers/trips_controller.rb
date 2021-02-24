@@ -1,5 +1,7 @@
 class TripsController < ApplicationController
-  # before_action :set_trips
+    def index
+    @trips = Trip.where(user: current_user)
+  end
 
   def new
     @trip = Trip.new
@@ -20,15 +22,10 @@ class TripsController < ApplicationController
     end
   end
 
-  def index
-    @trips = Trips.all
-  end
-
   def show; end
 
  private
 
   def trip_params
     params.require(:trip).permit(:arrival_date, :departure_date, :body_id, :user_id)
-  end
 end
