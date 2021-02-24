@@ -7,60 +7,19 @@
 
 
 <div class="container">
-
   <div class="row">
     <div class="col-12">
       <h1 class="mt-4 mb-4">Discover the space</h1>
+    </div>
   </div>
   <div class="row">
     <% @bodies.first(6).each do |body| %>
     <div class="col-lg-4 col-md-6 col-12 mb-3">
-    <div class="card-category">
-   <%= link_to body.name, body_path(body)%>
-</div>
+      <div class="card-category">
+        <%= link_to body.name, body_path(body)%>
+      </div>
     </div>
     <% end %>
   </div>
-   <div class="row">
- <% @bodies.first(3).each do |body| %>
- <div class="col-lg-4 col-md-6 col-12 mb-3">
-<div class="card" style="width: 20rem;">
-<%= image_tag "home-banner-min.jpg", alt: "alttext", class: "card-img-top" %>
-  <div class="card-body">
-<<<<<<< HEAD
-    <h5 class="card-title">Card with stretched link</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="stretched-link"></a>
-<<<<<<< HEAD
-=======
-=======
-    <h5 class="card-title"> <%= body.name %> </h5>
-    <p class="card-text">Climate: <%= body.climate %></p>
-    <%= link_to "", body_path(body), class: "stretched-link"%>
->>>>>>> b8c2253185b241f19be869b16b839f72f86d150d
-  </div>
-</div>
-</div>
-<<<<<<< HEAD
-    </div>
-
-  </div>
-=======
-<% end %>
->>>>>>> b8c2253185b241f19be869b16b839f72f86d150d
-</div>
-    </div>    <div class="col-lg-4 col-md-6 col-12 mb-3">
-   <div class="card" style="width: 22rem;">
-  <%= image_tag "home-banner-min.jpg", alt: "alttext", class: "card-img-top"%>
-  <div class="card-body">
-    <h5 class="card-title">Card with stretched link</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="stretched-link"></a>
-  </div>
-</div>
-    </div>
-  </div>
 </div>
 
-
-</div>
