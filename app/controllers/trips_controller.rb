@@ -29,3 +29,4 @@ class TripsController < ApplicationController
   def trip_params
     params.require(:trip).permit(:arrival_date, :departure_date, :body_id, :user_id)
 end
+end
