@@ -1,5 +1,24 @@
 class TripsController < ApplicationController
-  before_action :set_trips
+  # before_action :set_trips
+
+  def new
+    @trip = Trip.new
+    @body = Body.find(params[:body_id])
+    @user = current_user
+  end
+
+  def create
+    @body = Body.find(params[:body_id])
+    @user = current_user
+    @trip = Trip.new(trip_params)
+    @trip.body = @body
+    @trip.user = @user
+    if @body.save
+      redirect_to root_path
+    else
+      render :new
+   end
+  end
 
   def index
     @trips = Trips.all
@@ -7,24 +26,9 @@ class TripsController < ApplicationController
 
   def show; end
 
-
-  def create
-    @trip = Trip.find(params[:id])
-    @user = User.new(user_params)
-    @user.trip = @user.body(body_param)
-    @user.body = @user.costs_per_day
-
-    end
-  end
-
-  def new
-    @trip = Trip.new
-  end
-
-
  private
 
-  def review_params
-    params.require(:bodie).permit(:arrival_date, :departure_date, :number_of_guests)
+  def trip_params
+    params.require(:trip).permit(:arrival_date, :departure_date, :starship, :travel_cost, :)
   end
-
+end
