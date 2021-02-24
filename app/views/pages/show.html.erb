@@ -1,18 +1,14 @@
-<form action="/home">
+<!-- <form action="/home">
   <label for="fbody">body></label><br>
   <input type="text" id="fname"  value="Planet"><br>
-  <label for="fdeparture">Departure</label><br>
+  <label for="fdeparture">Departure:</label><br>
   <input type="text" id="fname"  value="date"><br>
   <label for="farrival">Arrival:</label><br>
   <input type="text" id="fname"  value="date"><br>
-  <label for="fname_first">Amount of guests</label><br>
-  <input type="text" id="fname"  value="Peter"><br>
-  <label for="fname_first">Amount of guests</label><br>
-  <input type="text" id="fname"  value="Peter"><br>
-  <label for="lname_last"></label><br>
-  <input type="text" id="lname" value="Wolf"><br><br>
+  <label for="fguest_number">Amount of guests</label><br>
+  <input type="number" id="lname" value="number"><br><br>
   <input type="submit" value="Submit">
-</form>
+</form> -->
 
 <%= @user each do |trip| %>
 <ul>
@@ -21,6 +17,7 @@
   <li><%= user.trip.starship %></li>
   <li><%= user.trip.travel_cost %></li>
 </ul>
+<%= "Your total amount is #{cost_per_trip} ."%>
  <% end %>
 
 <%= link_to " 🛸 Go - look for your next travel! 🛸 ", root_path %>

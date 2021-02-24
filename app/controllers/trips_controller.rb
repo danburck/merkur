@@ -9,20 +9,15 @@ class TripsController < ApplicationController
 
 
   def create
-    @body = Body.find(params[:body_id])
-    @trip = Trip.new(trip_params)
-    @trip.user = current_user
-    @trip.travel_cost = @body.cost_per_day
-    @booking
-     if @trip.save
-      redirect_to home_path(@bodies)
-    else
-      render 'new'
+    @trip = Trip.find(params[:id])
+    @user = User.new(user_params)
+    @user.trip = @user.body(body_param)
+    @user.body = @user.costs_per_day
+
     end
   end
 
   def new
-    @body = Body.find(params[:body_id])
     @trip = Trip.new
   end
 
@@ -30,6 +25,6 @@ class TripsController < ApplicationController
  private
 
   def review_params
-    params.require(:bodie).permit(:arrival_date, :departure_date)
+    params.require(:bodie).permit(:arrival_date, :departure_date, :number_of_guests)
   end
 
