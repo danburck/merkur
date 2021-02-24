@@ -11,7 +11,7 @@
 
 Faker::UniqueGenerator.clear
 
-DISTANCES = { 
+DISTANCES = {
 	"mercury" => 0.39,
 	"venus" => 0.72,
 	"earth" => 1.00,
@@ -200,7 +200,6 @@ def create_trips
       user: User.first,
       arrival_date: Date.today,
       departure_date: Date.today + 4,
-      starship: 'Tesla SN8',
       travel_cost: 400,
     )
     puts "Created Trip to #{trip.body.name} for user_1"
@@ -213,7 +212,6 @@ def create_trips
       user: User.second,
       arrival_date: Date.today,
       departure_date: Date.today + 4,
-      starship: 'Tesla SN8',
       travel_cost: 400,
     )
     puts "Created Trip to #{trip.body.name} for user_1"
