@@ -158,16 +158,30 @@ end
 
 
 def create_users
-  puts 'Creating user'
+  puts 'Creating user_1'
   user = User.create(
-    email: 'user@user.com',
+    email: 'user1@user.com',
     password: '123456',
     first_name: 'Alex',
     last_name: 'Jones',
     origin_planet: 'Earth'
     )
-  puts "Finished! Created #{user.first_name}, email: #{user.email}, password: #{user.password}"
+  puts "Created #{user.first_name}, email: #{user.email}, password: #{user.password}"
+
+  puts 'Creating user_2'
+  user = User.create(
+    email: 'user2@user.com',
+    password: '123456',
+    first_name: 'Phil',
+    last_name: 'Roony',
+    origin_planet: 'Earth'
+    )
+  puts "Created #{user.first_name}, email: #{user.email}, password: #{user.password}"
+  puts "Finished!"
 end
+
+
+
 
 def create_trips
   puts 'Creating trips.'
