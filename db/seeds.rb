@@ -87,6 +87,7 @@ WEATHER = [
 	"foggy"
 ]
 
+
 bodies_url = open("https://api.le-systeme-solaire.net/rest/bodies/").read
 bodies_json = JSON.parse(bodies_url)
 BODY = bodies_json["bodies"]
