@@ -67,3 +67,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # required for seeds
 gem 'json'
 gem 'faker'
+
+#required for search
+gem 'pg_search', '~> 2.3.0'
