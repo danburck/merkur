@@ -1,6 +1,6 @@
 .card-category {
   // Temporary picture
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), asset-url('home-banner-min');
+  // background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), asset-url('home-banner-min');
   // Temporary picture
   background-size: cover;
   background-position: center;
@@ -26,7 +26,7 @@
   .card-img-top {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    height: 180px;
+    height: 160px;
     object-fit: cover;
   }
 
