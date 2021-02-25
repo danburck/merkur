@@ -11,7 +11,7 @@
 
   <div class="content d-flex justify-content-between mt-4">
     <div class="content-details ">
-      <h4>Details</h3>
+      <h4>Details</h4>
       <p>
         The
         <% if @body.is_planet %>
@@ -54,18 +54,11 @@
         <% end %>
         <%= "can only hold #{@body.capacity} people, so book now!" %>
       </p>
-    </div>
+      <span style="color:#703AAA;"><p><%= "cost_per_day: #{@body.cost_per_day}" %></p></span>
     <div class="content-reservation">
-
-
-   <%= simple_form_for [ @body, @trip ] do |f| %>
-          <%= f.input :arrival_date, placeholder: "01.01.2021" %>
-          <%= f.input :departure_date, placeholder: "30.06.2021" %>
-          <%= f.submit "Add", class: "btn btn-primary" %>
-    <% end %>
-
+      <h3>Your journey</h3>
+      <%= render 'trips/form', trip: @trip %>
     </div>
   </div>
-</div>
 </div>
 
