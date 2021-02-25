@@ -5,7 +5,7 @@ const initUpdateNavbarOnScroll = () => {
   const hamburger = document.querySelector(".navbar")
   if (navbar) {
     window.addEventListener('scroll', () => {
-      if (window.scrollY >= 400) {
+      if (window.scrollY >= 200) {
         navbar.classList.add('navbar-lewagon-white');
         logo.classList.remove('logo-white');
         hamburger.classList.add("navbar-light");
