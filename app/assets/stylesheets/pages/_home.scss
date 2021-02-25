@@ -6,7 +6,17 @@ body {
 }
 
 .container {
- margin-top: 30px;
- padding-right: 50px;
- padding-left: 50px;
+  margin-top: 30px;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.link-banner {
+  text-decoration: none;
+  color: $gray;
+
+  :hover>& {
+    text-decoration: none;
+    color: $gray;
+  }
 }

@@ -1,6 +1,11 @@
+<div class="banner-small">
+  <h1>
+    <%= @body.name.capitalize %>
+  </h1>
+</div>
+
 <div class="container">
-  <h1><%= @body.name.capitalize %></h1>
-  <%= image_tag "mars.jpg", {alt: "mars", class: 'image-planet'} %>
+
 
   <% light = (@body.distance / 0.7214359695194).round(2).to_s.split(".") %>
 
