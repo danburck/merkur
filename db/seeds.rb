@@ -88,14 +88,14 @@ WEATHER = [
 ]
 
 BODY_IMAGES = [
-  "body_1.jpg"
-  "body_2.jpg"
-  "body_3.jpg"
-  "body_4.jpg"
-  "body_5.jpg"
-  "body_6.jpg"
-  "body_7.jpg"
-  "body_8.jpg"
+  "body_1.jpg",
+  "body_2.jpg",
+  "body_3.jpg",
+  "body_4.jpg",
+  "body_5.jpg",
+  "body_6.jpg",
+  "body_7.jpg",
+  "body_8.jpg",
   "body_9.jpg"
 ]
 
@@ -135,7 +135,8 @@ def body_builder(body)
 		is_planet: is_planet,
 		gravity: gravity,
 		cost_per_day: cost_per_day,
-		starship: starship
+		starship: starship,
+    image: BODY_IMAGES.sample
 	})
 	emoji = ["🪐", "☄️ ", "🌌"]
 	puts "#{emoji.sample}  Creating #{body.name.titleize}"
