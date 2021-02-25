@@ -10,12 +10,35 @@
     </div>
   </div>
   <div class="row">
-    <% @bodies.first(3).each do |body| %>
+    <% @bodies.sample(3).each do |body| %>
     <div class="col-lg-4 col-md-6 col-12 mb-3">
       <div class="card-category">
-        <%= link_to body.name, body_path(body)%>
+        <%= link_to body.name.capitalize, body_path(body)%>
       </div>
     </div>
     <% end %>
   </div>
 </div>
+
+<!-- 1st Top destinations Banner (Mars) -->
+<%= render 'shared/banner-mars' %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="mt-4 mb-4 text-center">The most booked destinations of this month!</h1>
+    </div>
+  </div>
+  <div class="row">
+    <% @bodies.sample(3).each do |body| %>
+    <div class="col-lg-4 col-md-6 col-12 mb-3">
+      <div class="card-category">
+        <%= link_to body.name.capitalize, body_path(body)%>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<!-- 2nd Top destinations Banner (Moon) -->
+<%= render 'shared/banner-moon' %>
