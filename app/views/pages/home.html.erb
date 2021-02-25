@@ -12,7 +12,9 @@
   <div class="row">
     <% @bodies.sample(3).each do |body| %>
     <div class="col-lg-4 col-md-6 col-12 mb-3">
-      <div class="card-category">
+      <div class="card-category" style="
+          background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(/assets/<%= body.image %>);
+        ">
         <%= link_to body.name.capitalize, body_path(body), class: "stretched-link" %>
       </div>
     </div>
@@ -32,7 +34,9 @@
   <div class="row">
     <% @bodies.sample(3).each do |body| %>
     <div class="col-lg-4 col-md-6 col-12 mb-3">
-      <div class="card-category">
+      <div class="card-category" style="
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(/assets/<%= body.image %>);
+      ">
         <%= link_to body.name.capitalize, body_path(body), class: "stretched-link" %>
       </div>
     </div>

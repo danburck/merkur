@@ -1,31 +1,27 @@
-<div class="banner-small">
+<div class="banner-small" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+  url(/assets/<%= @body.image %>);">
   <h1>
     <%= @body.name.capitalize %>
   </h1>
 </div>
 
 <div class="container">
-
-
   <div class="content d-flex justify-content-between mt-4">
     <div class="content-details ">
       <h3>Details</h3>
       <p><%= "discovered_by: #{@body.discovered_by}" %></p>
       <p><%= "discovery_date: #{@body.discovery_date}" %></p>
-  <p><%= "gravity: #{@body.gravity}" %></p>
-  <hr>
+      <p><%= "gravity: #{@body.gravity}" %></p>
+      <hr>
       <p><%= "distance: #{@body.distance} km" %></p>
       <p><%= "capacity: #{@body.capacity} people" %></p>
       <p><%= "climate: #{@body.climate}" %></p>
-
-<hr>
+      <hr>
       <span style="color:#703AAA;"><p><%= "cost_per_day: #{@body.cost_per_day}" %></p></span>
     </div>
     <div class="content-reservation">
-
-     <h3>Your journey</h3>
-     <%= render 'trips/form', trip: @trip %>
-
+       <h3>Your journey</h3>
+       <%= render 'trips/form', trip: @trip %>
     </div>
   </div>
 </div>
