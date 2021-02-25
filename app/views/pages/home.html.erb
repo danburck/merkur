@@ -19,18 +19,9 @@
     <% end %>
   </div>
 </div>
-<!-- 1st Top destinations Banner -->
 
-<%= link_to body_path(@mars.first.id), class: "link-banner" do %>
-<div class="card-product my-3 position-relative">
-  <%= image_tag "mars-min.jpg", alt: "Landscape of Mars" %>
-  <div class="card-product-infos">
-    <h2>Mars</h2>
-    <p>Click here and book your next trip to the red planet!</p>
-
-  </div>
-</div>
-<% end %>
+<!-- 1st Top destinations Banner (Mars) -->
+<%= render 'shared/banner-mars' %>
 
 <div class="container">
   <div class="row">
@@ -48,14 +39,6 @@
     <% end %>
   </div>
 </div>
-<!-- 2nd Top destinations Banner -->
-<%= link_to body_path(@moon.first.id), class: "link-banner" do %>
-<div class="card-product my-3">
-  <div class="card-product-infos">
-    <h2>Moon</h2>
-    <p>Click here and get the chance to have an amazing time!</p>
-  </div>
-   <%= image_tag "moon-min.jpg", alt: "Landscape of Mars" %>
-</div>
-<% end %>
 
+<!-- 1st Top destinations Banner (Moon) -->
+<%= render 'shared/banner-moon' %>
