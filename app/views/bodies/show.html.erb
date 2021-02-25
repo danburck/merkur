@@ -25,7 +25,7 @@
         <% elsif @body.gravity < 1 %>
           <%= "#{@body.name.titleize} has a gravity #{1.fdiv(@body.gravity).round(2)} times weaker than that of Earth's." %>
         <% elsif @body.gravity == 1 %>
-          <% "You will not notice a change in gravitational force. The gravity on #{@body.name.titleize} is the same as Earth's." %>
+          <%= "You will not notice a change in gravitational force. The gravity on #{@body.name.titleize} is the same as Earth's." %>
         <% else %>
           <%= "#{@body.name.titleize} has a gravity #{@body.gravity} times stronger than that of Earth's." %>
         <% end %>
@@ -33,7 +33,7 @@
       <p>
         The atmospheric conditions of 
         <%= "#{@body.name.titleize} are #{@body.climate}."%>
-        No matter how the weather is, you will be enjoying your stay in optimal conditions at one of Merkur's premium climate controlled estates.
+        No matter the weather, you will be enjoying your stay in optimal conditions at one of Merkur's premium climate controlled estates.
       </p>
       <p>
         <% if @body.discovered_by %>
