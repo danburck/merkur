@@ -8,7 +8,7 @@
 
 
   <% light = (@body.distance / 0.7214359695194).round(2).to_s.split(".") %>
-  <% discovered_by = @body.discovered_by.gsub(", ", " and ") %>
+  <% @body.discovered_by ? discovered_by = @body.discovered_by.gsub(", ", " and ") : discovered_by = @body.discovered_by %>
 
   <div class="content d-flex justify-content-between mt-4">
     <div class="content-details ">
