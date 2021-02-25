@@ -4,24 +4,24 @@
       <%= text_field_tag :query,
         params[:query],
         class: "form-control flex-grow-1",
-        placeholder: "Discover new worlds"
+        placeholder: "Search for world by name or closest planet"
         %>
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
   </form>
 	<div class="row">
 		<div class="col-12">
-		<h1 class="mt-4 mb-4">Worlds</h1>
+		<h1 class="mt-4 mb-4">Discover New Worlds</h1>
 		</div>
 	</div>
 	<div class="row">
 		<% @bodies.each do |body| %>
 			<div class="col-lg-4 col-md-6 col-12 mb-3">
 				<div class="card-category">
-					<%= link_to body.name.titleize, body_path(body)%>
+					<%= link_to body.name.titleize, body_path(body), class: "stretched-link" %>
 				</div>
 			</div>
-		<% end %>
+		<% end %> 
 	</div>
   <nav aria-label="Page navigation">
   <ul class="pagination justify-content-end">
