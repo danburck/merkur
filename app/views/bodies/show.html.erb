@@ -19,23 +19,21 @@
         <% else %>
           <%= "world " %>
         <% end %>
-        <%= "'#{@body.name.titleize}' "%>
-        is
-        <%= "#{@body.distance} astronomical units "%>
-        away from Earth. It takes light
-        <%="#{light[0]} hours and #{light[1]} minutes " %>
-        to travel this far. You will be travelling onboard the 
-        <%= @body.starship.name %>
-         at close to the speed of light.
-        <%= @body.name.titleize %>
-         has a gravity of
-        <%= "#{@body.gravity} " %>
-        in relation to Earth.
+        <%= "'#{@body.name.titleize}' is #{@body.distance} astronomical units away from Earth. It takes light #{light[0]} hours and #{light[1]} minutes to travel this far. You will be travelling onboard the '#{@body.starship.name}' at close to the speed of light. Your travel time from Earth to #{@body.name.titleize} will be approximately #{(light[0].to_i * 1.3).to_i} hours." %>
+        <% if @body.gravity.zero? %>
+          <%= "There is no gravity on #{@body.name.titleize}, so make sure you are wearing a spacesuit at all times whilst not indoors." %>
+        <% elsif @body.gravity < 1 %>
+          <%= "#{@body.name.titleize} has a gravity #{1.fdiv(@body.gravity).round(2)} times weaker than that of Earth's." %>
+        <% elsif @body.gravity == 1 %>
+          <% "You will not notice a change in gravitational force. The gravity on #{@body.name.titleize} is the same as Earth's." %>
+        <% else %>
+          <%= "#{@body.name.titleize} has a gravity #{@body.gravity} times stronger than that of Earth's." %>
+        <% end %>
       </p>
       <p>
         The atmospheric conditions of 
         <%= "#{@body.name.titleize} are #{@body.climate}."%>
-        No matter the weather, you will be enjoying your stay in optimal conditions at one of Merkur's premium climate controlled estates.
+        No matter how the weather is, you will be enjoying your stay in optimal conditions at one of Merkur's premium climate controlled estates.
       </p>
       <p>
         <% if @body.discovered_by %>
