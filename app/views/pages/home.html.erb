@@ -18,7 +18,54 @@
     </div>
     <% end %>
   </div>
+
+
+   <div class="row">
+ <% @bodies.first(3).each do |body| %>
+ <div class="col-lg-4 col-md-6 col-12 mb-3">
+<div class="card" style="width: 20rem;">
+<%= image_tag "home-banner-min.jpg", alt: "alttext", class: "card-img-top" %>
+  <div class="card-body">
+
+    <h5 class="card-title">Card with stretched link</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="stretched-link"></a>
+
+    <h5 class="card-title"> <%= body.name %> </h5>
+    <p class="card-text">Climate: <%= body.climate %></p>
+    <%= link_to "", body_path(body), class: "stretched-link"%>
+
+  </div>
 </div>
+</div>
+
+    </div>
+
+  </div>
+
+<% end %>
+
+</div>
+    </div>    <div class="col-lg-4 col-md-6 col-12 mb-3">
+   <div class="card" style="width: 22rem;">
+  <%= image_tag "home-banner-min.jpg", alt: "alttext", class: "card-img-top"%>
+  <div class="card-body">
+    <h5 class="card-title">Card with stretched link</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="stretched-link"></a>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
 
 <!-- 1st Top destinations Banner (Mars) -->
 <%= render 'shared/banner-mars' %>
@@ -42,3 +89,4 @@
 
 <!-- 2nd Top destinations Banner (Moon) -->
 <%= render 'shared/banner-moon' %>
+
