@@ -22,7 +22,7 @@
 
       <% bodie_price = @trip.body.cost_per_day %>
       <% total_cost = bodie_price * days_in_range %>
-      <%= "The total cost of your trip: #{total_cost} Spacecoins." %>
+      <span style="color:red"><%= "The total costs of your trip:  #{total_cost}  Spacecoins." %></span>
 </li>
     </ul>
   </div>
