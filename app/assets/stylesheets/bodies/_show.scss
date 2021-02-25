@@ -28,8 +28,6 @@
   margin-right: 30px;
   margin-bottom: 20px;
   padding-top: 20px;
-
-
   h3 {
     text-align: center;
     padding-bottom: 10px;
@@ -46,9 +44,8 @@
 }
 
 
- .container_one {
+ .container-showpage {
   display: flex;
-  flex-direction: row;
-  flex-flow: space-around;
-  justify-content: center;
+  justify-content: space-around;
+  width: 100%;
  }

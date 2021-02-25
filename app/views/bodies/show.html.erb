@@ -1,16 +1,18 @@
-<div class="banner-small">
+<div class="banner-small" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(/assets/mars-min.jpg)">
   <h1>
     <%= @body.name.capitalize %>
   </h1>
 </div>
 
-<div class="container_one">
+
 
 
   <% light = (@body.distance / 0.7214359695194).round(2).to_s.split(".") %>
   <% @body.discovered_by ? discovered_by = @body.discovered_by.gsub(", ", " and ") : discovered_by = @body.discovered_by %>
 
   <div class="content d-flex justify-content-between mt-4">
+<div class="container-showpage">
+
     <div class="content-details ">
       <h4>Details</h4>
       <p>
