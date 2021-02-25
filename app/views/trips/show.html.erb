@@ -5,6 +5,7 @@
 <div class="container align-items-center justify-content-center">
   <div class="d-flex flex-column align-items-center justify-content-center">
     <h2>Here are the details of your trip</h2>
+
     <ul>
       <li>Arrival date:
         <%= @trip.arrival_date %>
@@ -12,6 +13,18 @@
       <li>Departure date:
         <%= @trip.departure_date %>
       </li>
+
+
+<li>
+      <% arrival_start = @trip.arrival_date %>
+      <% departure_start = @trip.departure_date %>
+      <% days_in_range = (arrival_start .. departure_start).count %>
+
+      <% bodie_price = @trip.body.cost_per_day %>
+      <% total_cost = bodie_price * days_in_range %>
+      <hr>
+      <span style="color:#703AAA"><%= "The total costs of your trip:  #{total_cost}  Spacecoins." %></span>
+</li>
     </ul>
   </div>
 </div>
