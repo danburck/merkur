@@ -12,7 +12,7 @@
           <div class="card-body">
           <p class=" card-date mb-1"><%= "#{trip.departure_date} - #{trip.arrival_date}"%></p>
             <h5 class="card-title"><%= trip.body.name.capitalize %></h5>
-            <a href="#" class="stretched-link"></a>
+            <%= link_to "", trip_path(trip), class: "stretched-link"%>
           </div>
         </div>
       </div>
