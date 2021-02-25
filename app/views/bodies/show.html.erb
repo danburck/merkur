@@ -2,6 +2,8 @@
   <h1><%= @body.name.capitalize %></h1>
   <%= image_tag "mars.jpg", {alt: "mars", class: 'image-planet'} %>
 
+  <% light = (@body.distance / 0.7214359695194).round(2).to_s.split(".") %>
+
   <div class="content d-flex justify-content-between mt-4">
     <div class="content-details ">
       <h4>Details</h3>
@@ -12,11 +14,10 @@
         <% else %>
           <%= "world " %>
         <% end %>
-        <%= "'#{@body.name.capitalize}' "%>
+        <%= "'#{@body.name.titleize}' "%>
         is
         <%= "#{@body.distance} astronomical units "%>
         away from Earth. It takes light
-        <% light = (@body.distance / 0.7214359695194).round(2).to_s.split(".") %>
         <%="#{light[0]} hours and #{light[1]} minutes " %>
         to travel this far. You will be travelling onboard the 
         <%= @body.starship.name %>
