@@ -5,25 +5,50 @@
   </h1>
 </div>
 
-<div class="container">
-  <div class="content d-flex justify-content-between mt-4">
+  <% light = (@body.distance / 0.7214359695194).round(2).to_s.split(".") %>
+  <% @body.discovered_by ? discovered_by = @body.discovered_by.gsub(", ", " and ") : discovered_by = @body.discovered_by %>
+
+<div class="content d-flex justify-content-between mt-4">
+  <div class="container-showpage">
     <div class="content-details ">
-      <h3>Details</h3>
-      <p><%= "discovered_by: #{@body.discovered_by}" %></p>
-      <p><%= "discovery_date: #{@body.discovery_date}" %></p>
-      <p><%= "gravity: #{@body.gravity}" %></p>
+      <h4>Details</h4>
+      <p>
+        <%= @body.is_planet ? "The planet " : "The world " %>
+        <%= "'#{@body.name.titleize}' is #{@body.distance} astronomical units away from Earth. It takes light #{light[0]} hours and #{light[1]} minutes to travel this far. You will be travelling onboard the '#{@body.starship.name}' at close to the speed of light. Your travel time from Earth to #{@body.name.titleize} will be approximately #{(light[0].to_i * 1.3).to_i} hours." %>
+        <% if @body.gravity.zero? %>
+          <%= "There is no gravity on #{@body.name.titleize}, so make sure you are wearing a spacesuit at all times whilst not indoors." %>
+        <% elsif @body.gravity < 1 %>
+          <%= "#{@body.name.titleize} has a gravity #{1.fdiv(@body.gravity).round(2)} times weaker than that of Earth's." %>
+        <% elsif @body.gravity == 1 %>
+          <%= "Upon arrival you will not notice a change in gravitational force. The gravity on #{@body.name.titleize} is the same as Earth's." %>
+        <% else %>
+          <%= "#{@body.name.titleize} has a gravity #{@body.gravity} times stronger than that of Earth's." %>
+        <% end %>
+      </p>
+      <p>
+        The atmospheric conditions of 
+        <%= "#{@body.name.titleize} are #{@body.climate}."%>
+        No matter the weather, you will be enjoying your stay in optimal conditions at one of Merkur's premium climate controlled estates.
+      </p>
+      <p>
+        <% if @body.discovered_by && @body.discovery_date %>
+          <%= '<i class="fas fa-lightbulb"></i>'.html_safe %>
+          <%= "#{@body.name.titleize} was discovered by #{discovered_by} #{@body.discovery_date.strftime("in %B of %Y")}." %>
+        <% elsif @body.discovered_by && @body.discovery_date.nil? %>
+          <%= '<i class="fas fa-lightbulb"></i>'.html_safe %>
+          <%= "#{@body.name.titleize} was discovered by #{discovered_by}." %>
+        <% end %>
+      </p>
+      <p>
+        <%="It costs #{@body.cost_per_day} space dollars per day to stay on #{@body.name.titleize}." %>
+        <%= @body.is_planet ? "This planet " : "This world " %>
+        <%= "can only hold #{@body.capacity} people, so book now!" %>
+      </p>
       <hr>
-      <p><%= "distance: #{@body.distance} km" %></p>
-      <p><%= "capacity: #{@body.capacity} people" %></p>
-      <p><%= "climate: #{@body.climate}" %></p>
-      <hr>
-      <span style="color:#703AAA;"><p><%= "cost_per_day: #{@body.cost_per_day}" %></p></span>
-    </div>
-    <div class="content-reservation">
-       <h3>Your journey</h3>
-       <%= render 'trips/form', trip: @trip %>
+      <div class="content-reservation">
+        <h3>Your journey</h3>
+        <%= render 'trips/form', trip: @trip %>
+      </div>
     </div>
   </div>
 </div>
-</div>
-

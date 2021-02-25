@@ -28,8 +28,6 @@
   margin-right: 30px;
   margin-bottom: 20px;
   padding-top: 20px;
-
-
   h3 {
     text-align: center;
     padding-bottom: 10px;
@@ -45,10 +43,9 @@
   width: 140px;
 }
 
-// Container is already a bootstrap class.
-// .container {
-//   display: flex;
-//   flex-direction: row;
-//   flex-flow: space-around;
-//   justify-content: center;
-// }
+
+ .container-showpage {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+ }
