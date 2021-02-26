@@ -11,6 +11,7 @@
 <div class="content d-flex justify-content-between mt-4">
   <div class="container-showpage">
     <div class="content-details ">
+
       <h4>Details</h4>
       <p>
         <%= @body.is_planet ? "The planet " : "The world " %>
@@ -26,7 +27,9 @@
         <% end %>
       </p>
       <p>
-        The atmospheric conditions of 
+
+        The atmospheric conditions of
+
         <%= "#{@body.name.titleize} are #{@body.climate}."%>
         No matter the weather, you will be enjoying your stay in optimal conditions at one of Merkur's premium climate controlled estates.
       </p>
@@ -44,11 +47,15 @@
         <%= @body.is_planet ? "This planet " : "This world " %>
         <%= "can only hold #{@body.capacity} people, so book now!" %>
       </p>
-      <hr>
+
+      </div>
+
       <div class="content-reservation">
         <h3>Your journey</h3>
         <%= render 'trips/form', trip: @trip %>
       </div>
     </div>
   </div>
+
 </div>
+
