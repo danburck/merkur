@@ -12,7 +12,6 @@
   <div class="container-showpage">
     <div class="content-details ">
 
-
       <h4>Details</h4>
       <p>
         <%= @body.is_planet ? "The planet " : "The world " %>
@@ -28,7 +27,9 @@
         <% end %>
       </p>
       <p>
+
         The atmospheric conditions of
+
         <%= "#{@body.name.titleize} are #{@body.climate}."%>
         No matter the weather, you will be enjoying your stay in optimal conditions at one of Merkur's premium climate controlled estates.
       </p>
@@ -46,6 +47,7 @@
         <%= @body.is_planet ? "This planet " : "This world " %>
         <%= "can only hold #{@body.capacity} people, so book now!" %>
       </p>
+
       </div>
 
       <div class="content-reservation">
@@ -55,4 +57,5 @@
     </div>
   </div>
 
+</div>
 
