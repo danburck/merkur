@@ -3,15 +3,28 @@
   <h1>Get ready for your next trip to
     <%= @trip.body.name %>! <i class="fas fa-rocket"></i></h1>
 </div>
-<div class="container align-items-center justify-content-center">
+<div class="container align-items-center justify-content-center" id="confi">
   <div class="d-flex flex-column align-items-center justify-content-center">
-    <h2>Here are the details of your trip</h2>
+ <div class="confirmation-container">
+    <h2>Trip Confirmation</h2>
+
+
+    <h4>Details of your trip:</h4>
     <ul>
       <li>Arrival date:
         <%= @trip.arrival_date %>
       </li>
       <li>Departure date:
         <%= @trip.departure_date %>
+      </li>
+       <li>Distance:
+        <%=  @trip.body.distance %>
+      </li>
+      <li>Starship:
+         <%= @trip.body.starship.name %>
+      </li>
+       <li>Climate:
+         <%= @trip.body.climate %>
       </li>
       <li>
         <% arrival_start = @trip.arrival_date %>
@@ -21,8 +34,9 @@
         <% bodie_price = @trip.body.cost_per_day %>
         <% total_cost = bodie_price * days_in_range %>
         <hr>
-        🛸 <span style="color:#703AAA"><%= "The total costs of your trip:  #{total_cost}  Spacecoins." %></span> 🛸
+        🛸 <span style="color:#703AAA"><%= "Total costs of your trip:  #{total_cost}  Spacecoins." %></span> 🛸
       </li>
     </ul>
   </div>
+</div>
 </div>
