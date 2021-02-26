@@ -9,5 +9,7 @@ class BodiesController < ApplicationController
   def show
     @body = Body.find(params[:id])
     @trip = Trip.new
+    @bodies = Body.all
+    @random_nearby_bodies = [@bodies.sample, @bodies.sample, @bodies.sample]
   end
 end
