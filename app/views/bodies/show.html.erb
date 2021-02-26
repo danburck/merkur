@@ -33,7 +33,7 @@
 
 <div class="content d-flex justify-content-between mt-4">
   <div class="container-showpage">
-    <div class="content-details ">
+    <div class="content-details">
       <h4>Details</h4>
       <p>
         <i class="fas fa-rocket"></i>
@@ -78,7 +78,6 @@
         <%= @body.is_planet ? "This planet " : "This world " %>
         <%= "can only hold #{@body.capacity} people, so book now!" %>
       </p>
-      </div>
     </div>
     <div class="content-reservation">
       <h3>Your journey</h3>
@@ -91,7 +90,7 @@
   <div class="row near-planets-headline">
     <div class="col-12">
       <h1 class="mt-4 mb-4 text-center">
-        Nearby <%= @body.name.titleize %>
+        Planets Nearby <%= @body.name.titleize %>
       </h1>
     </div>
   </div>
