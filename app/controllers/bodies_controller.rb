@@ -9,7 +9,7 @@ class BodiesController < ApplicationController
   def show
     @body = Body.find(params[:id])
     @trip = Trip.new
-    # @nearby_bodies = Body.search_by_nearest_planet(@body.name)
-    @nearby_bodies = [Body.first, Body.second, Body.third]
+    @bodies = Body.all
+    @random_nearby_bodies = [@bodies.sample, @bodies.sample, @bodies.sample]
   end
 end
