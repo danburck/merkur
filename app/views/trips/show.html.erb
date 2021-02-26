@@ -1,5 +1,5 @@
 <div class="banner-small" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-  url(/assets/<%= @trip.body.image %>);">
+  url('<%= asset_path(@trip.body.image) %>');">
   <h1>Get ready for your next trip to
     <%= @trip.body.name %>! <i class="fas fa-rocket"></i></h1>
 </div>
