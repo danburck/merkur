@@ -5,13 +5,12 @@
   </h1>
 </div>
 
-  <% light = (@body.distance / 0.7214359695194).round(2).to_s.split(".") %>
-  <% @body.discovered_by ? discovered_by = @body.discovered_by.gsub(", ", " and ") : discovered_by = @body.discovered_by %>
+<% light = (@body.distance / 0.7214359695194).round(2).to_s.split(".") %>
+<% @body.discovered_by ? discovered_by = @body.discovered_by.gsub(", ", " and ") : discovered_by = @body.discovered_by %>
 
 <div class="content d-flex justify-content-between mt-4">
   <div class="container-showpage">
     <div class="content-details ">
-
       <h4>Details</h4>
       <p>
         <%= @body.is_planet ? "The planet " : "The world " %>
@@ -27,9 +26,7 @@
         <% end %>
       </p>
       <p>
-
         The atmospheric conditions of
-
         <%= "#{@body.name.titleize} are #{@body.climate}."%>
         No matter the weather, you will be enjoying your stay in optimal conditions at one of Merkur's premium climate controlled estates.
       </p>
@@ -47,14 +44,36 @@
         <%= @body.is_planet ? "This planet " : "This world " %>
         <%= "can only hold #{@body.capacity} people, so book now!" %>
       </p>
-
       </div>
-
       <div class="content-reservation">
         <h3>Your journey</h3>
         <%= render 'trips/form', trip: @trip %>
       </div>
     </div>
+    <div class="content-reservation">
+      <h3>Your journey</h3>
+      <%= render 'trips/form', trip: @trip %>
+    </div>
+  </div>
+</div>
+
+<div class="container nearby-bodies">
+  <div class="row near-planets-headline">
+    <div class="col-12">
+      <h1 class="mt-4 mb-4 text-center">
+        Nearby <%= @body.name.titleize %>
+      </h1>
+    </div>
+  </div>
+  <div class="row nearby-bodies-content ">
+    <% @random_nearby_bodies.each do |body| %>
+      <div class="col-lg-4 col-md-6 col-12 mb-3">
+        <div class="card-category" style="
+          background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(/assets/<%= body.image %>);">
+          <%= link_to body.name.titleize, body_path(body), class: "stretched-link" %>
+        </div>
+      </div>
+    <% end %>
   </div>
 
 </div>
