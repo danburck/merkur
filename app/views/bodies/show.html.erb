@@ -38,7 +38,7 @@
       <p>
         <i class="fas fa-rocket"></i>
         <%= @body.is_planet ? "The planet " : "The world " %>
-        <%= "'#{@body.name.titleize}' is #{pluralize(@body.distance, "astronomical unit")} away from Earth. It takes light #{pluralize(hour, "hour")} and #{pluralize(minute, "minute")} to travel this far." %>
+        <%= "'#{@body.name.titleize}' is #{pluralize(@body.distance, "astronomical unit")} away from Earth. It takes light #{pluralize(hour, "hour")} #{"and #{pluralize(minute, "minute")}" unless minute == 0 } to travel this far." %>
       </p>
       <p>
         <i class="fas fa-bolt"></i>
