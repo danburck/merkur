@@ -10,7 +10,7 @@
 
 <div class="content d-flex justify-content-between mt-4">
   <div class="container-showpage">
-    <div class="content-details">
+    <div class="content-details ">
       <h4>Details</h4>
       <p>
         <%= @body.is_planet ? "The planet " : "The world " %>
@@ -44,7 +44,11 @@
         <%= @body.is_planet ? "This planet " : "This world " %>
         <%= "can only hold #{@body.capacity} people, so book now!" %>
       </p>
-      <hr>
+      </div>
+      <div class="content-reservation">
+        <h3>Your journey</h3>
+        <%= render 'trips/form', trip: @trip %>
+      </div>
     </div>
     <div class="content-reservation">
       <h3>Your journey</h3>
@@ -71,4 +75,6 @@
       </div>
     <% end %>
   </div>
+
 </div>
+
