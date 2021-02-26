@@ -26,7 +26,7 @@
        <li>Climate:
          <%= @trip.body.climate %>
       </li>
-      <li>
+    </ul>
         <% arrival_start = @trip.arrival_date %>
         <% departure_start = @trip.departure_date %>
         <% days_in_range = (arrival_start .. departure_start).count %>
@@ -35,8 +35,8 @@
         <% total_cost = bodie_price * days_in_range %>
         <hr>
         🛸 <span style="color:#703AAA"><%= "Total costs of your trip:  #{total_cost}  Spacecoins." %></span> 🛸
-      </li>
-    </ul>
+
+
   </div>
 </div>
 </div>
