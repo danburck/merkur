@@ -17,11 +17,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+
   .content {
     flex-grow: 1;
   }
 }
-
- // *= require bootstrap-datepicker
- // # Or if using bootstrap v3:
- // *= require bootstrap-datepicker3
