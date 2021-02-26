@@ -1,21 +1,12 @@
 <div class="banner-small" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(/assets/moon-min.jpg)">
   <h1>Your next trip into space is only a few clicks away</h1>
 </div>
-
+<%= render 'shared/search-bar' %>
 <div class="container">
-	<form class="form-inline justify-content-center px-5">
-  	<%= form_tag bodies_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control flex-grow-1",
-        placeholder: "Search for world by name or closest planet"
-        %>
-      <%= submit_tag "Search", class: "btn btn-info" %>
-    <% end %>
-  </form>
+
 	<div class="row">
 		<div class="col-12">
-		<h1 class="mt-4 mb-4">Discover New Worlds</h1>
+		<h1 class="mt-4 mb-4 text-center">Discover New Worlds</h1>
 		</div>
 	</div>
 	<div class="row">
