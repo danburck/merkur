@@ -1,5 +1,5 @@
 <div class="banner-small" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-  url(/assets/<%= @body.image %>);">
+  url('<%= asset_path(@body.image) %>');">
   <h1>
     <%= @body.name.capitalize %>
   </h1>
@@ -29,7 +29,7 @@
       <% discovered_by = discovered_transformed.join(",") %>
     <% end %>
   <% end %>
-  
+
 
 <div class="content d-flex justify-content-between mt-4">
   <div class="container-showpage">
@@ -52,7 +52,7 @@
           <%= '<i class="fas fa-user-astronaut"></i>'.html_safe %>
           <%= "#{@body.name.titleize} has a gravity #{1.fdiv(@body.gravity).round(2)} times weaker than that of Earth's." %>
         <% elsif @body.gravity == 1 %>
-          <%= '<i class="fas fa-user-astronaut"></i>'.html_safe %> 
+          <%= '<i class="fas fa-user-astronaut"></i>'.html_safe %>
           <%= "Upon arrival you will not notice a change in gravitational force. The gravity on #{@body.name.titleize} is the same as Earth's." %>
         <% else %>
           <%= '<i class="fas fa-user-astronaut"></i>'.html_safe %>
@@ -98,7 +98,7 @@
     <% @random_nearby_bodies.each do |body| %>
       <div class="col-lg-4 col-md-6 col-12 mb-3">
         <div class="card-category" style="
-          background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(/assets/<%= body.image %>);">
+          background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('<%= asset_path(body.image) %>');">
           <%= link_to body.name.titleize, body_path(body), class: "stretched-link" %>
         </div>
       </div>
