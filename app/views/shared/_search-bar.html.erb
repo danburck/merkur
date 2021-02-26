@@ -1,13 +1,9 @@
-<div class="container-search-bar m-auto">
-  <%= simple_form_for :search, url: bodies_path, method: :get do |f| %>
-  <div class="search-form-control form-group">
-    <input class="form-control string required" type="text" name="query" id="search_query" placeholder="Search for world by name or closest planet"/>
-    <button type="submit" class="btn btn-info text-right">
-      <i class="fas fa-search"></i>
-    </button>
-  </div>
-  <% end %>
-</div>
 
-<!-- http://localhost:3000/bodies?query=mars&commit=Search
-http://localhost:3000/bodies?search%5Bquery%5D=mars&button= -->
+<%= simple_form_for :search, url: bodies_path, method: :get do |f| %>
+<div class="search-form-control form-group mb-3">
+  <input class="form-control string required" type="text" name="query" id="search_query" placeholder="Search for world by name or closest planet" />
+  <button type="submit" class="btn btn-info text-right">
+    <i class="fas fa-search"></i>
+  </button>
+</div>
+<% end %>
