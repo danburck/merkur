@@ -5,33 +5,63 @@
   </h1>
 </div>
 
-  <% light = (@body.distance / 0.7214359695194).round(2).to_s.split(".") %>
-  <% @body.discovered_by ? discovered_by = @body.discovered_by.gsub(", ", " and ") : discovered_by = @body.discovered_by %>
+  <% light = (@body.distance / 0.7214359695194).round(2)%>
+  <% time = light.to_s.split(".") %>
+  <% hour = time[0].to_i %>
+  <% minute = (time[1].to_i * 60) / 100 %>
+  <% puts @body.discovered_by %>
+  <% if @body.discovered_by %>
+    <% discovered_by_array = @body.discovered_by.split(",") %>
+    <% discovered_transformed = discovered_by_array.each_with_index.map do |d, i| %>
+      <% if discovered_by_array.size == 1 %>
+        <% d %>
+      <% else %>
+        <% if i == discovered_by_array.size - 1 %>
+          <% " and#{d}" %>
+        <% else %>
+          <% d %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <% if discovered_transformed.size == 2 %>
+      <% discovered_by = discovered_transformed.join("") %>
+    <% else %>
+      <% discovered_by = discovered_transformed.join(",") %>
+    <% end %>
+  <% end %>
+  
 
 <div class="content d-flex justify-content-between mt-4">
   <div class="container-showpage">
-    <div class="content-details ">
-
+    <div class="content-details">
       <h4>Details</h4>
       <p>
+        <i class="fas fa-rocket"></i>
         <%= @body.is_planet ? "The planet " : "The world " %>
-        <%= "'#{@body.name.titleize}' is #{@body.distance} astronomical units away from Earth. It takes light #{light[0]} hours and #{light[1]} minutes to travel this far. You will be travelling onboard the '#{@body.starship.name}' at close to the speed of light. Your travel time from Earth to #{@body.name.titleize} will be approximately #{(light[0].to_i * 1.3).to_i} hours." %>
+        <%= "'#{@body.name.titleize}' is #{pluralize(@body.distance, "astronomical unit")} away from Earth. It takes light #{pluralize(hour, "hour")} and #{pluralize(minute, "minute")} to travel this far." %>
+      </p>
+      <p>
+        <i class="fas fa-bolt"></i>
+        <%= "You will be travelling onboard the '#{@body.starship.name}' at close to the speed of light. Your travel time from Earth to #{@body.name.titleize} will be approximately #{pluralize((hour * 1.3).round, "hour")}." %>
+      </p>
+      <p>
         <% if @body.gravity.zero? %>
+          <%= '<i class="fas fa-user-astronaut"></i>'.html_safe %>
           <%= "There is no gravity on #{@body.name.titleize}, so make sure you are wearing a spacesuit at all times whilst not indoors." %>
         <% elsif @body.gravity < 1 %>
+          <%= '<i class="fas fa-user-astronaut"></i>'.html_safe %>
           <%= "#{@body.name.titleize} has a gravity #{1.fdiv(@body.gravity).round(2)} times weaker than that of Earth's." %>
         <% elsif @body.gravity == 1 %>
+          <%= '<i class="fas fa-user-astronaut"></i>'.html_safe %> 
           <%= "Upon arrival you will not notice a change in gravitational force. The gravity on #{@body.name.titleize} is the same as Earth's." %>
         <% else %>
+          <%= '<i class="fas fa-user-astronaut"></i>'.html_safe %>
           <%= "#{@body.name.titleize} has a gravity #{@body.gravity} times stronger than that of Earth's." %>
         <% end %>
       </p>
       <p>
-
-        The atmospheric conditions of
-
-        <%= "#{@body.name.titleize} are #{@body.climate}."%>
-        No matter the weather, you will be enjoying your stay in optimal conditions at one of Merkur's premium climate controlled estates.
+        <i class="fas fa-sun"></i>
+        <%= "The atmospheric conditions of #{@body.name.titleize} are #{@body.climate}, but always temperate in one of Merkur's premium estates."%>
       </p>
       <p>
         <% if @body.discovered_by && @body.discovery_date %>
@@ -43,19 +73,36 @@
         <% end %>
       </p>
       <p>
+        <i class="fas fa-hryvnia"></i>
         <%="It costs #{@body.cost_per_day} space dollars per day to stay on #{@body.name.titleize}." %>
         <%= @body.is_planet ? "This planet " : "This world " %>
         <%= "can only hold #{@body.capacity} people, so book now!" %>
       </p>
-
-      </div>
-
-      <div class="content-reservation">
-        <h3>Your journey</h3>
-        <%= render 'trips/form', trip: @trip %>
-      </div>
+    </div>
+    <div class="content-reservation">
+      <h3>Your journey</h3>
+      <%= render 'trips/form', trip: @trip %>
     </div>
   </div>
+</div>
 
+<div class="container nearby-bodies">
+  <div class="row near-planets-headline">
+    <div class="col-12">
+      <h1 class="mt-4 mb-4 text-center">
+        Planets Nearby <%= @body.name.titleize %>
+      </h1>
+    </div>
+  </div>
+  <div class="row nearby-bodies-content ">
+    <% @random_nearby_bodies.each do |body| %>
+      <div class="col-lg-4 col-md-6 col-12 mb-3">
+        <div class="card-category" style="
+          background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(/assets/<%= body.image %>);">
+          <%= link_to body.name.titleize, body_path(body), class: "stretched-link" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 

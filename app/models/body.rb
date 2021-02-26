@@ -5,6 +5,13 @@ class Body < ApplicationRecord
     	using: {
      		tsearch: { prefix: true }
      	}
+
+    pg_search_scope :search_by_nearest_planet,
+      against: [ :nearest_planet ],
+      using: {
+        tsearch: { prefix: true }
+      }
+
 	has_many :trips
 	belongs_to :starship
 	validates :name, :nearest_planet, :distance, :climate, :capacity, :cost_per_day, presence: true
