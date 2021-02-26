@@ -1,8 +1,10 @@
 class BodiesController < ApplicationController
 	def index
 		if params[:query].present?
-			@bodies = Body.search_by_name_and_nearest_planet(params[:query])
+			@body = Body.search_by_name(params[:query])
+      @bodies = Body.all
 		else
+      @body = Body.all
       @bodies = Body.all
     end
 	end
