@@ -18,7 +18,15 @@ class TripsController < ApplicationController
     if @trip.save
       redirect_to trip_path(@trip)
     else
-      render :new
+      if !@booking.date?
+        redirect_to route_path(@class), alert: "please fill date"
+      else
+        if @booking.save
+          redirect_to booking_path
+        else
+          render :new
+        end
+      end
     end
   end
 
